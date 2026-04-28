@@ -1,0 +1,14 @@
+# Ignorar carpetas de compilación
+bin/
+out/
+
+# Ignorar archivos de configuración de editores
+.vscode/
+.idea/
+*.swp
+
+# Ignorar archivos compilados de Java
+*.class 
+
+# Otros archivos innecesarios
+.DS_Store
