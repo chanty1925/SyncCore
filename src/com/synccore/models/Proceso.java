@@ -14,9 +14,37 @@ public class Proceso {
         this.tiempoRestante = tiempoRafaga; // Al inicio, falta todo por ejecutar
     }
 
-    // Métodos para obtener los datos (Getters)
-    public int getPid() { return pid; }
-    public int getTiempoArribo() { return tiempoArribo; }
-    public int getTiempoRafaga() { return tiempoRafaga; }
-    public int getTiempoRestante() { return tiempoRestante; }
+    // (Getters)
+    public int getPid() { 
+        return pid; 
+    }
+    public int getTiempoArribo() { 
+        return tiempoArribo; 
+    }
+    public int getTiempoRafaga() { 
+        return tiempoRafaga; 
+    }
+    public int getTiempoRestante() { 
+        return tiempoRestante; 
+    }
+    //Setters
+    public void setPid (int pid){
+        this.pid = pid;
+    }
+    public void setTiempoArribo (int tiempoArribo){
+        this.tiempoArribo = tiempoArribo;
+    }
+    public void setTiempoRafaga (int tiempoRafaga){
+        this.tiempoRafaga = tiempoRafaga;
+    }
+    public void setTiempoRestante (int tiempoRestante){
+        this.tiempoRestante = tiempoRestante;
+    }
+
+    //Metodo para reducir tiempo segun el quantum
+    public void restarTiempo (int quantum){
+        this.tiempoRestante -= quantum;
+        if(tiempoRestante < 0)this.tiempoRestante = 0;
+    }
+
 }
