@@ -74,7 +74,7 @@ public class Main {
         // Se ordena por PID para que la tabla se lea en orden 1, 2, 3...
         lista.sort((p1, p2) -> Integer.compare(p1.getPid(), p2.getPid()));
         
-        System.out.println("PID\tLlegada\tRáfaga\tPrio\t| TF\tTR\tTE");
+        System.out.println("PID\tLlegada\tRáfaga\tPrio\t| TiempoFinal\tTiempoRestante\tTiempo de Espera");
         System.out.println("---------------------------------------------------------");
         for (Proceso p : lista) {
             System.out.printf("%d\t%d\t%d\t%d\t| %d\t%d\t%d\n", 
