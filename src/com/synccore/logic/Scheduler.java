@@ -93,6 +93,7 @@ public class Scheduler{
     }
     //=========================FIN FCFS====================================================
 
+    //=========================INICIO SJF=================================================
     public void ejecutarSJF(ArrayList<Proceso> listaProceso){
         //organizar la lista de procesos segun su tiempo de llegada o arribo 
         // con la funcion sort Comparator nativo de Java basado en el algoritmo 
@@ -133,7 +134,10 @@ public class Scheduler{
             }
         }
     }
+    //=============================FIN SJF============================================
 
+
+    //==============================INICIO PRIORIDAD===============================================
     public void ejecutarPrioridad(ArrayList<Proceso> listaProceso){
         listaProceso.sort(Comparator.comparingInt(Proceso::getTiempoArribo));
         PriorityQueue<Proceso> colaProceso = new PriorityQueue<>(Comparator.comparingInt(Proceso::getPrioridad).thenComparing(Proceso::getTiempoArribo));
@@ -165,7 +169,9 @@ public class Scheduler{
             }
         }
     }
+    //=======================FIN PRIORIDAD==========================================
 
+    //================================INICIO SRTF==========================================
     public void ejecutarSRTF(ArrayList<Proceso> listaProcesos){
         int tiempoActual = 0;
         int procesosCompletados = 0;
@@ -202,5 +208,6 @@ public class Scheduler{
             }
         }
     }
+    //=============================FIN SRTF=========================================
 
 }
