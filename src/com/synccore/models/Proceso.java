@@ -10,12 +10,22 @@ public class Proceso {
     private int tiempoEspera;
     private int prioridad;
 
-    // Se ejecuta cuando se crea el proceso
+    // Constructor para algoritmos (FCFS, SJF, RR, SRTF)
     public Proceso(int pid, int tiempoArribo, int tiempoRafaga) {
         this.pid = pid;
         this.tiempoArribo = tiempoArribo;
         this.tiempoRafaga = tiempoRafaga;
         this.tiempoRestante = tiempoRafaga;
+        this.prioridad = 0; 
+    }
+
+// Constructor para el algoritmo de Prioridades
+    public Proceso(int pid, int tiempoArribo, int tiempoRafaga, int prioridad) {
+        this.pid = pid;
+        this.tiempoArribo = tiempoArribo;
+        this.tiempoRafaga = tiempoRafaga;
+        this.tiempoRestante = tiempoRafaga;
+        this.prioridad = prioridad;
     }
 
     // (Getters)

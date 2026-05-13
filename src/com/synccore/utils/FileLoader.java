@@ -14,21 +14,35 @@ public class FileLoader {
             Scanner lector = new Scanner(archivo);
             
             while (lector.hasNextLine()) {
-                String linea = lector.nextLine();
-                // Suponemos formato: PID;Arribo;Rafaga
+                //Se quita espacios basura a la linea
+                String linea = lector.nextLine().trim(); 
+                
+                // Si la linea está completamente vacía, nos la saltamos
+                if (linea.isEmpty()) {
+                    continue; 
+                }
+                
                 String[] datos = linea.split(";");
                 
                 int pid = Integer.parseInt(datos[0]);
                 int arribo = Integer.parseInt(datos[1]);
                 int rafaga = Integer.parseInt(datos[2]);
                 
-                lista.add(new Proceso(pid, arribo, rafaga));
+                //  El archivo trae 3 o 4 columnas?
+                if (datos.length >= 4) {
+                    // Tiene prioridad
+                    int prioridad = Integer.parseInt(datos[3]);
+                    lista.add(new Proceso(pid, arribo, rafaga, prioridad));
+                } else {
+                    // No tiene prioridad, usamos el constructor normal
+                    lista.add(new Proceso(pid, arribo, rafaga));
+                }
             }
             lector.close();
         } catch (FileNotFoundException e) {
             System.err.println("Error: No se encontro el archivo en " + ruta);
         } catch (Exception e) {
-            System.err.println("Error al procesar el archivo: " + e.getMessage());
+            System.err.println("Error fatal al leer la linea: " + e.getMessage());
         }
         return lista;
     }
